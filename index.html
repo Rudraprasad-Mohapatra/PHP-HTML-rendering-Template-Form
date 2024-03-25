@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>HTML Renderer</title>
     <style>
@@ -12,10 +13,12 @@
             background-color: #333;
             color: #fff;
         }
+
         form {
             width: 100%;
             max-width: 600px;
         }
+
         textarea {
             width: 100%;
             resize: vertical;
@@ -25,6 +28,7 @@
             color: #fff;
             border: none;
         }
+
         input[type="file"] {
             width: 100%;
             padding: 10px;
@@ -33,6 +37,7 @@
             color: #fff;
             border: none;
         }
+
         input[type="submit"] {
             padding: 10px 20px;
             background-color: #555;
@@ -40,15 +45,30 @@
             border: none;
             cursor: pointer;
         }
+
         input[type="submit"]:hover {
             background-color: #666;
         }
     </style>
+    <script src="https://cdn.tiny.cloud/1/s7a4fsl6nt2df0wvffq6fv9slkig73q7vgp3ikwmx1oi3gru/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin">
+    </script>
+
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
+    <script>
+        $("p").each(function(){$(this).parent().append($(this).html()); $(this).remove()})
+    </script>
+
 </head>
+
 <body>
     <h2>Paste HTML Code</h2>
     <form action="process_form.php" method="post" enctype="multipart/form-data">
-        <textarea name="html_code" rows="10" cols="50"></textarea>
+        <textarea id="mytextarea" name="html_code" rows="10" cols="50"></textarea>
         <br>
         <h2>Select Images</h2>
         <input type="file" name="images[]" multiple accept="image/*">
@@ -56,4 +76,5 @@
         <input type="submit" value="Submit">
     </form>
 </body>
+
 </html>

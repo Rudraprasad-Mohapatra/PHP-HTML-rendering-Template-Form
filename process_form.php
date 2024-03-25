@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     fclose($html_file);
 
     // Redirect to the rendered HTML file
-    header("Location: rendered_html.html");
+    header("Location: rendered_html.php");
     exit;
 }
 ?>
